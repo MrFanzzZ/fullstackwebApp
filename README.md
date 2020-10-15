@@ -15,9 +15,12 @@
 - 响应http请求
 
 ``` sh
+# 安装zip
 apt install unzip
-
-sudo cp .deno/bin/deno/usr/bin
+#拷贝二进制文件
+sudo cp .deno/bin/deno /usr/bin
+# 检查是否安装成功
+deno --version
 ``` 
 ## DataBase
 
