@@ -1,5 +1,5 @@
 import { Application, Router, send } from "https://deno.land/x/oak/mod.ts";
-
+ import { Client } from "https://deno.land/x/mysql/mod.ts";
 const router = new Router();
 router
   .get("/", async (context) => {
@@ -18,5 +18,4 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 
 // console.log(`${Deno.cwd()}`)
-
 await app.listen({ port: 8080 });
