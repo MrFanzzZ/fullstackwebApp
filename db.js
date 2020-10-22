@@ -4,7 +4,7 @@ const client = await new Client().connect({
   username: "root",
   db: "d",
   poolSize: 3, // connection limit
-  password: "abc123",
+  password: "SUfan4833",
 });
 await client.execute(`CREATE DATABASE IF NOT EXISTS enok`);
 await client.execute(`USE enok`);
@@ -23,11 +23,11 @@ let result = await client.execute(`INSERT INTO users(name) values(?)`, [
 console.log(result);
 // { affectedRows: 1, lastInsertId: 1 }
 
-let result = await client.execute(`update users set ?? = ?`, ["name", "MYR"]);
+ result = await client.execute(`update users set ?? = ?`, ["name", "MYR"]);
 console.log(result);
 // { affectedRows: 1, lastInsertId: 0 }
 
-let result = await client.execute(`delete from users where ?? = ?`, ["id", 1]);
+result = await client.execute(`delete from users where ?? = ?`, ["id", 1]);
 console.log(result);
 // { affectedRows: 1, lastInsertId: 0 }
 
@@ -39,10 +39,10 @@ const queryWithParams = await client.query(
 );
 console.log(users, queryWithParams);
 
-const users = await client.transaction(async (conn) => {
+const users1 = await client.transaction(async (conn) => {
   await conn.execute(`insert into users(name) values(?)`, ["test"]);
   return await conn.query(`select ?? from ??`, ["name", "users"]);
 });
-console.log(users.length);
+console.log(users1.length);
 
 await client.close();
