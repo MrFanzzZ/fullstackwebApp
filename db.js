@@ -1,3 +1,4 @@
+
 import { Client } from "https://deno.land/x/mysql/mod.ts";
 const client = await new Client().connect({
   hostname: "127.0.0.1",
@@ -6,7 +7,8 @@ const client = await new Client().connect({
   poolSize: 3, // connection limit
   password: "SUfan4833",
 });
-await client.execute(`CREATE DATABASE IF NOT EXISTS enok`);
+   await client.execute(`USE d`);   
+/*await client.execute(`CREATE DATABASE IF NOT EXISTS enok`);
 await client.execute(`USE enok`);
 await client.execute(`DROP TABLE IF EXISTS users`);
 await client.execute(`
@@ -45,4 +47,5 @@ const users1 = await client.transaction(async (conn) => {
 });
 console.log(users1.length);
 
-await client.close();
+await client.close();*/
+export default client ;
